@@ -13,6 +13,7 @@ namespace TicketOffice
             
             int price = PriceSetter(age, place);
             TaxCalculator(price);
+            TicketNumberGenerator();
             
         }
         
@@ -66,7 +67,13 @@ namespace TicketOffice
             return tax;
         }
 
-
+        public static int TicketNumberGenerator()
+        {
+            var random = new Random();
+            int n = random.Next(0, 8000);
+            Console.WriteLine("The ticket number is: {0} ", n);
+            return n;
+        }
         
 
     }
