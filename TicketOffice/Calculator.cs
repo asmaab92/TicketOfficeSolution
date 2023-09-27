@@ -1,12 +1,18 @@
-﻿namespace TicketOffice
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace TicketOffice
 {
     public class Calculator
     {
         public static void Main(string[] args)
         {
+            
             int age = 0;
             string place = null;
-            PriceSetter(age, place);
+            
+            
+            int price = PriceSetter(age, place);
+            TaxCalculator(price);
             
         }
         
@@ -48,9 +54,17 @@
                 price = 60;
             }
             Console.WriteLine("The price of the ticket is: " + price + "SEK");
+
             return price;
         }
-        
+
+        public static decimal TaxCalculator(int price)
+        {
+            
+            decimal tax = Convert.ToDecimal(1 - 1 / 1.06) * price;
+            Console.WriteLine("The paid tax is: " + tax + "SEK");
+            return tax;
+        }
 
 
         
